@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <img src="images/logo.png" alt="University Logo" class="logo">
+    <h1>Student Registration</h1>
+  <div class="menu">&#x22EE;
+    <div class="menu-links">
+      <a href="index.html">Home</a><br>
+      <a href="admin.html">Admin</a>
+    </div>
+  </div>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="programwise_student_list.html">Program List</a>
+    <a href="coursedetails.html">Course Details</a>
+    <a href="student_registration.html">Registration</a>
+    <a href="feedback.html">Feedback</a>
+</nav>
+
+<main>
+    <h2>Registration for a Programme</h2>
+    <form id="regForm" onsubmit="return validateForm()">
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+
+        <label for="username">Username<span class="required">*</span>:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username">
+
+        <label for="phone">Phone Number<span class="required">*</span>:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+
+        <label for="email">Email ID<span class="required">*</span>:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+
+        <label for="gender">Gender<span class="required">*</span>:</label>
+        <select id="gender" name="gender">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        
+        <label for="course">Select Course<span class="required">*</span>:</label>
+        <select id="course" name="course">
+            <!-- Courses will be loaded dynamically -->
+        </select>
+        
+        <button type="submit">Submit</button>
+    </form>
+</main>
+
+<script src = "js/threedotmenu.js"></script>
+
+
+<footer>
+    <p>&copy; 2025 IGNOU University. All rights reserved.</p>
+</footer>
+
+<script src="js/registrationform.js"></script>
+</body>
+</html>

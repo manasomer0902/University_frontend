@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <img src="images/logo.png" alt="University Logo" class="logo">
+    <h1>Feedback Form</h1>
+    <div class="menu">&#x22EE;
+        <div class="menu-links">
+          <a href="index.html">Home</a><br>
+          <a href="admin.html">Admin</a>
+        </div>
+      </div>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="programwise_student_list.html">Program List</a>
+    <a href="coursedetails.html">Course Details</a>
+    <a href="student_registration.html">Registration</a>
+    <a href="feedback.html">Feedback</a>
+</nav>
+
+<main>
+    <h2>Feedback Form</h2>
+    <form id="feedbackForm" onsubmit="return validateFeedback()" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        
+        <label for="feedback">Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4" placeholder="Enter your feedback" required></textarea>
+        
+        <button type="submit">Submit</button>
+    </form>
+</main>
+
+<script src="js/feedbackform.js"></script>
+<script src = "js/threedotmenu.js"></script>
+
+
+<footer>
+    <p>&copy; 2025 IGNOU University. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <img src="images/logo.png" alt="University Logo" class="logo">
+    <h1>Admin Login</h1>
+    <div class="menu">&#x22EE;
+        <div class="menu-links">
+          <a href="index.html">Home</a><br>
+          <a href="programwise_student_list.html">ProgramList</a><br>
+          <a href="student_registration.html">Registration</a><br>
+          <a href="feedback.html">Feedback</a><br> 
+        </div>
+      </div>
+</header>
+
+<main>
+<h2>Admin Login</h2>
+<p id="error" style="color: red;"></p>
+
+<form id="loginForm">
+  <input type="text" id="username" placeholder="Username" required>
+  
+  <div class="password-wrapper">
+    <input type="password" id="password" placeholder="Password" required>
+    <span class="toggle-password" onclick="toggleVisibility('password', this)">👁️</span>
+  </div>
+  
+  <button type="submit">Login</button>
+</form>
+<p><a href="forgot_password.html" id="forgotPassword">Forgot Password?</a></p>
+
+
+</main>
+
+<footer>
+    <p>&copy; 2025 IGNOU University. All rights reserved.</p>
+</footer>
+
+<script src="js/login.js" defer></script>
+<script src="js/threedotmenu.js"></script>
+</body>
+</html>

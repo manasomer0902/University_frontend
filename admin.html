@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - IGNOU</title>
+  <script>
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="IGNOU Logo" class="logo" />
+  <h1>Admin Panel</h1>
+  <div class="menu">&#8942;
+    <div class="menu-links">
+      <a href="index.html">Home</a><br>
+      <a href="admin.html">Admin</a>
+    </div>
+  </div>
+</header>
+
+<main class="admin-panel">
+  <h2>Submitted Feedbacks</h2>
+  <button id="logoutBtn" class="button-link">Logout</button>
+
+  <div id="feedbackContainer" class="feedback-list"></div>
+</main>
+
+<footer>
+  <p>&copy; 2025 IGNOU University. All rights reserved.</p>
+</footer>
+
+<script src="js/admin.js"></script>
+<script src = "js/threedotmenu.js"></script>
+</body>
+</html>

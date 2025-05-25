@@ -1,0 +1,320 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Header Styling */
+header {
+    background: #4c98af;
+    color: rgb(3, 3, 3);
+    text-align: center;
+    padding: 20px;
+}
+.logo {
+    max-width: 100px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+/* Navigation Menu */
+nav {
+    background: #333;
+    overflow: hidden;
+}
+nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 10px;
+    text-decoration: none;
+}
+nav a:hover {
+    background: #4c98af;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+#searchBar {
+    width: 70%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+button {
+    padding: 12px 20px;
+    margin-left: 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Highlight matching text */
+.highlight {
+    background: yellow;
+    font-weight: bold;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    background: #f4f4f4;
+    min-height: 70vh;
+}
+main h2 {
+    color: #333;
+}
+main p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Program Section */
+.program-section {
+    margin-bottom: 30px;
+}
+.program-section h2 {
+    background: rgb(139, 78, 78);
+    color: rgb(20, 2, 2);
+    padding: 15px;
+    font-size: 24px;
+    border-radius: 10px;
+}
+
+.course-wrapper {
+    margin: 15px;
+}
+
+.course {
+    margin: 10px 0;
+    cursor: pointer;
+    color: #3876b9;
+    font-weight: bold;
+    font-style: italic;
+}
+.students {
+    display: none;
+    margin-left: 20px;
+}
+
+.students.show {
+    display: block;
+}
+.students ul {
+    list-style-type: none;
+    padding: 0;
+}
+.students li {
+    font-weight: bold;
+    font-style: italic;
+    color: #4b4747;
+}
+
+/* Student Registration*/
+main h2 {
+    margin-bottom: 25px;  
+}
+label, input, select, button {
+    display: block;
+    margin: 10px 0;
+}
+input, select, button {
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+.required {
+    color: red;
+    margin-left: 3px;
+}
+
+/* Feedback Form Styles */
+form label,
+form input,
+form textarea,
+form button {
+    display: block;
+    margin: 10px 0;
+    border-radius: 15px;
+}
+
+form input,
+form textarea,
+form button {
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Button-like Links */
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 10px 0 0;
+    background-color: #007BFF;
+    color: rgb(18, 17, 17);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button-link:hover {
+    background-color: #0056b3;
+}
+
+/* Admin Dropdown Menu */
+.menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    color: black;
+}
+
+.menu-links {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    display: none;
+    position: absolute;
+    background-color: transaprent;
+    padding: 5px 0;
+    right: 10px;
+    top: 25px;   
+    z-index: 1000;
+    box-shadow:none; 
+}
+
+
+.menu-links.show {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+
+.menu-links a {
+    display: block;
+    padding: 4px 10px;
+    margin-top: 0;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    line-height: 0.1;
+}
+.menu-links a:hover {
+    background-color: transparent;
+}
+
+/* Admin Feedback Styles */
+.feedback-list {
+    margin-top: 20px;
+}
+.feedback-item {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 4px solid #007BFF;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Reset Password Specific Styles */
+.password-wrapper {
+    position: relative;
+    max-width: 400px;
+    }
+  
+  .password-wrapper input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+  }
+
+  #message {
+    font-weight: bold;
+    margin-top: 10px;
+    max-width: 400px; ;
+  }
+
+  form button {
+    padding: 10px 20px; 
+    width: 100%;
+    background-color: #007bff;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  form button:hover {
+    background-color: #0056b3;
+  }
+  
+
+/* Logout Button */
+#logoutBtn {
+    float: right;
+    margin-top: -40px;
+    margin-right: 10px;
+    background-color: #dc3545;
+  }
+  
+  #logoutBtn:hover {
+    background-color: #c82333;
+  }
+  
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+

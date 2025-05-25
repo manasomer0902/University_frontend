@@ -14,7 +14,7 @@ function checkLoginStatus() {
 function handleLogout() {
   const username = localStorage.getItem("username");
   
-  fetch("https://university-website-kth9.onrender.com/logout", {
+  fetch("https://uni-backend-lojc.onrender.com/logout", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("No auth token found");
 
-      const response = await fetch("https://university-website-kth9.onrender.com/feedbacks", {
+      const response = await fetch("https://uni-backend-lojc.onrender.com/feedbacks", {
         headers: {
           "Authorization": token // Changed: Remove 'Bearer' as server expects raw token
         }

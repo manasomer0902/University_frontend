@@ -17,7 +17,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
   
-    fetch("https://university-website-kth9.onrender.com/login", {
+    fetch("https://uni-backend-lojc.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

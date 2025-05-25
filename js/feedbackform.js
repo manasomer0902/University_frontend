@@ -11,7 +11,7 @@ function validateFeedback() {
     }
 
     // ✅ Send POST request to backend
-    fetch("https://university-website-kth9.onrender.com/submit", {
+    fetch("https://uni-backend-lojc.onrender.com/submit", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

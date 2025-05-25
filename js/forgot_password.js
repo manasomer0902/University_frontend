@@ -4,7 +4,7 @@ document.getElementById("forgotForm").addEventListener("submit", async function(
     const email = document.getElementById("email").value;
   
     try {
-      const res = await fetch("https://university-website-kth9.onrender.com/forgot-password", {
+      const res = await fetch("https://uni-backend-lojc.onrender.com/forgot-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })

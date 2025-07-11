@@ -1,0 +1,99 @@
+/* Reset and Fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+  background: #4c98af;
+  color: black;
+  text-align: center;
+  padding: 20px;
+}
+.logo {
+  max-width: 100px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+/* Menu */
+.menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  color: black;
+}
+.menu-links {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 10px;
+  background-color: transparent;
+  transition: opacity 0.3s ease;
+}
+.menu-links.show {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+.menu-links a {
+  display: block;
+  padding: 4px 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+.menu-links a:hover {
+  background-color: transparent;
+}
+
+/* Navigation Menu */
+nav {
+  background: #333;
+  overflow: hidden;
+}
+nav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 10px;
+  text-decoration: none;
+}
+nav a:hover {
+  background: #4c98af;
+}
+
+/* Main */
+main {
+  padding: 20px;
+  background: #f4f4f4;
+  min-height: 70vh;
+}
+main h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+main p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

@@ -1,0 +1,134 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+  background: #4c98af;
+  color: rgb(3, 3, 3);
+  text-align: center;
+  padding: 20px;
+}
+.logo {
+  max-width: 100px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+/* Three-dot Admin Menu */
+.menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  color: black;
+}
+.menu-links {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  padding: 5px 0;
+  right: 10px;
+  top: 25px;
+  z-index: 1000;
+}
+.menu-links.show {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+.menu-links a {
+  display: block;
+  padding: 4px 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  line-height: 0.1;
+}
+.menu-links a:hover {
+  background-color: transparent;
+}
+
+/* Navigation Bar */
+nav {
+  background: #333;
+  overflow: hidden;
+}
+nav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 10px;
+  text-decoration: none;
+}
+nav a:hover {
+  background: #4c98af;
+}
+
+/* Main Content */
+main {
+  padding: 20px;
+  background: #f4f4f4;
+  min-height: 70vh;
+}
+main h2 {
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Feedback Form */
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+form label,
+form textarea,
+form input,
+form button {
+  display: block;
+  margin: 10px 0;
+  font-size: 16px;
+}
+form input,
+form textarea {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+form button {
+  padding: 12px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+form button:hover {
+  background: #0056b3;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

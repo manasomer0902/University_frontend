@@ -1,32 +1,38 @@
-// Student Registration Form Validation
+// ✅ Validate the student registration form
 function validateForm() {
     const fields = {
         username: document.getElementById('username').value.trim(),
+        password: document.getElementById('password').value.trim(),
         name: document.getElementById('name').value.trim(),
         phone: document.getElementById('phone').value.trim(),
         email: document.getElementById('email').value.trim(),
-        gender: document.getElementById('gender').value.trim(),
-        course: document.getElementById('course').value.trim()
+        gender: document.getElementById('gender').value,
+        course: document.getElementById('course').value
     };
-    
 
-    // Check if any field is empty
+    // Check for empty fields
     for (let field in fields) {
         if (!fields[field]) {
-            alert("Please fill in all required fields");
+            alert("Please fill in all required fields.");
             return false;
         }
     }
 
-    // Validate phone number (10 digits)
+    // Validate 10-digit phone number
     if (!/^\d{10}$/.test(fields.phone)) {
-        alert("Please enter a valid 10-digit phone number");
+        alert("Please enter a valid 10-digit phone number.");
         return false;
     }
 
     // Validate email format
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
-        alert("Please enter a valid email address");
+        alert("Please enter a valid email address.");
+        return false;
+    }
+
+    // Password validation (optional): minimum 6 characters
+    if (fields.password.length < 6) {
+        alert("Password must be at least 6 characters long.");
         return false;
     }
 
@@ -34,49 +40,36 @@ function validateForm() {
     return true;
 }
 
-
-// Function to load courses from program list
+// ✅ Load course options dynamically from programmedetails.html
 async function loadCourses() {
-    console.log('Starting to load courses...'); // Debug log
     try {
-        const response = await fetch('programwise_student_list.html');
-        console.log('Fetched response:', response.ok); // Debug log
-
+        const response = await fetch('programmedetails.html');
         const html = await response.text();
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
-        
-        const courseElements = doc.querySelectorAll('.course');
-        console.log('Found courses:', courseElements.length); // Debug log
 
+        const courseElements = doc.querySelectorAll('.course h3');
         const courseSelect = document.getElementById('course');
-        if (!courseSelect) {
-            console.error('Course select element not found!');
-            return;
-        }
-        
-        // Clear existing options except the first one
+
+        // Clear old options (except default first)
         while (courseSelect.options.length > 1) {
             courseSelect.remove(1);
         }
-        
-        // Add courses from program list
-        courseElements.forEach(course => {
-            const courseName = course.textContent;
-            const option = document.createElement('option');
-            option.value = courseName.toLowerCase().replace(/[^a-z0-9]+/g, '_');
-            option.textContent = courseName;
-            courseSelect.appendChild(option);
-            console.log(`Added course ${index + 1}:`, courseName); // Debug log
+
+        // Append course titles as <option>
+        courseElements.forEach(h3 => {
+            const title = h3.textContent.trim();
+            if (title) {
+                const option = document.createElement('option');
+                option.value = title; // Keep original title as value
+                option.textContent = title;
+                courseSelect.appendChild(option);
+            }
         });
-        console.log('Finished loading courses:', courseSelect.options.length - 1); // Debug 
     } catch (error) {
-        console.error('Error loading courses:', error);
+        console.error("Error loading courses:", error);
     }
 }
 
-// Load courses when the page loads
-window.addEventListener('load', () => {
-    console.log('Page loaded, initializing course loading...'); // Debug log
-    loadCourses();
-});
+// ✅ Trigger course loading on page load
+window.addEventListener('DOMContentLoaded', loadCourses);

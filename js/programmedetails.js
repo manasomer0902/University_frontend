@@ -16,17 +16,19 @@ document.getElementById("searchBar").addEventListener("input", function () {
 });
 
 // Modal functionality
-document.querySelectorAll(".button-link").forEach(button => {
-  button.addEventListener("click", function () {
-    const course = this.parentElement;
-    const title = course.querySelector("h3").innerText;
-    const duration = course.querySelector("p").innerText;
+document.querySelectorAll(".button-link").forEach(el => {
+  if (el.tagName.toLowerCase() === "button") {
+    el.addEventListener("click", function () {
+      const course = this.parentElement;
+      const title = course.querySelector("h3").innerText;
+      const duration = course.querySelector("p").innerText;
 
-    modalTitle.innerText = title;
-    modalDesc.innerText = `${duration}\n\nMore information about this course will go here.`;
+      modalTitle.innerText = title;
+      modalDesc.innerText = `${duration}\n\nMore information about this course will go here.`;
 
-    modal.style.display = "block";
-  });
+      modal.style.display = "block";
+    });
+  }
 });
 
 // Close modal

@@ -49,7 +49,7 @@ A responsive and interactive frontend for a University Management System built u
 ![Reset](images/screenshots/reset.png)
 
 ### 🔁 Forget Password
-![Forget](images/screenshots/forget.png)
+![Forget](images/screenshots/forgot.png)
 
 ---
 

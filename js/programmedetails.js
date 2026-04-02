@@ -1,38 +1,84 @@
-// Modal elements
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modalTitle");
-const modalDesc = document.getElementById("modalDesc");
-const closeModal = document.getElementsByClassName("close")[0];
+// ================= INIT =================
+document.addEventListener("DOMContentLoaded", () => {
 
-// Search functionality
-document.getElementById("searchBar").addEventListener("input", function () {
-  const query = this.value.toLowerCase();
+  const searchBar = document.getElementById("searchBar");
   const courses = document.querySelectorAll(".course");
 
-  courses.forEach(course => {
-    const text = course.innerText.toLowerCase();
-    course.style.display = text.includes(query) ? "block" : "none";
-  });
-});
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDesc = document.getElementById("modalDesc");
+  const closeModal = document.querySelector(".close");
 
-// Modal functionality
-document.querySelectorAll(".button-link").forEach(el => {
-  if (el.tagName.toLowerCase() === "button") {
-    el.addEventListener("click", function () {
-      const course = this.parentElement;
-      const title = course.querySelector("h3").innerText;
-      const duration = course.querySelector("p").innerText;
+  // ================= SEARCH =================
+  if (searchBar) {
+    searchBar.addEventListener("input", function () {
+      const query = this.value.toLowerCase();
 
-      modalTitle.innerText = title;
-      modalDesc.innerText = `${duration}\n\nMore information about this course will go here.`;
+      courses.forEach(course => {
+        const text = course.innerText.toLowerCase();
 
-      modal.style.display = "block";
+        // 🔥 Use flex/grid friendly display
+        course.style.display = text.includes(query) ? "" : "none";
+      });
     });
   }
-});
 
-// Close modal
-closeModal.onclick = () => modal.style.display = "none";
-window.onclick = event => {
-  if (event.target == modal) modal.style.display = "none";
-};
+
+  // ================= MODAL OPEN =================
+  document.querySelectorAll(".button-link").forEach(el => {
+
+    // Only for buttons (not links)
+    if (el.tagName.toLowerCase() === "button") {
+
+      el.addEventListener("click", function () {
+
+        const course = this.closest(".course");
+        if (!course) return;
+
+        const title = course.querySelector("h3")?.innerText || "Course";
+        const desc = course.querySelector("p")?.innerText || "";
+
+        modalTitle.innerText = title;
+        modalDesc.innerText = `${desc}\n\nMore details coming soon...`;
+
+        openModal();
+      });
+    }
+  });
+
+
+  // ================= MODAL FUNCTIONS =================
+  function openModal() {
+    if (!modal) return;
+
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden"; // 🔥 prevent scroll
+  }
+
+  function closeModalFunc() {
+    if (!modal) return;
+
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+
+  // ================= CLOSE EVENTS =================
+  if (closeModal) {
+    closeModal.addEventListener("click", closeModalFunc);
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModalFunc();
+    }
+  });
+
+  // 🔥 ESC KEY SUPPORT
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModalFunc();
+    }
+  });
+
+});

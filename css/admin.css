@@ -1,4 +1,4 @@
-/* General Reset */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -6,121 +6,145 @@
   font-family: Arial, sans-serif;
 }
 
-/* Header Styling */
+
+/* ================= HEADER ================= */
 header {
-  background: #4c98af;
-  color: rgb(3, 3, 3);
+  background: linear-gradient(135deg, #4c98af, #6fb1c7);
   text-align: center;
   padding: 20px;
-}
-.logo {
-  max-width: 100px;
-  display: block;
-  margin: 0 auto 10px;
+  position: relative;
+  color: white;
 }
 
-/* Admin Dropdown Menu */
+.logo {
+  max-width: 80px;
+  margin-bottom: 10px;
+}
+
+
+/* ================= MENU ================= */
 .menu {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 24px;
   cursor: pointer;
-  z-index: 1000;
-  color: black;
 }
 
 .menu-links {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  display: none;
   position: absolute;
-  background-color: transparent;
-  padding: 5px 0;
-  right: 10px;
-  top: 25px;
-  z-index: 1000;
-  box-shadow: none;
+  top: 35px;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  padding: 8px 0;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: 0.25s;
 }
 
 .menu-links.show {
   opacity: 1;
-  visibility: visible;
-  display: block;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .menu-links a {
   display: block;
-  padding: 4px 10px;
-  margin-top: 0;
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-  line-height: 0.1;
-}
-.menu-links a:hover {
-  background-color: transparent;
-}
-
-/* Main Content */
-main {
-  padding: 20px;
-  background: #f4f4f4;
-  min-height: 70vh;
-}
-main h2 {
-  color: #333;
-  margin-bottom: 25px;
-}
-
-/* Feedback Section */
-.feedback-list {
-  margin-top: 20px;
-}
-.feedback-item {
-  background: #fff;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-left: 4px solid #007BFF;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Button-like Link */
-.button-link {
-  display: inline-block;
   padding: 10px 20px;
-  margin: 10px 10px 0 0;
-  background-color: #007BFF;
-  color: rgb(18, 17, 17);
   text-decoration: none;
-  border-radius: 5px;
+  color: #333;
+}
+
+.menu-links a:hover {
+  background: #f0f0f0;
+}
+
+
+/* ================= MAIN ================= */
+.admin-container {
+  padding: 30px;
+  background: #f4f4f4;
+  min-height: 80vh;
+}
+
+
+/* ================= TOP BAR ================= */
+.admin-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-top h2 {
+  color: #333;
+}
+
+
+/* ================= LOGOUT ================= */
+.logout-btn {
+  padding: 10px 20px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #a71d2a;
+}
+
+
+/* ================= FEEDBACK GRID ================= */
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+
+/* ================= FEEDBACK CARD ================= */
+.feedback-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.feedback-card:hover {
+  transform: translateY(-5px);
+}
+
+.feedback-name {
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
 }
 
-.button-link:hover {
-  background-color: #0056b3;
+.feedback-text {
+  color: #555;
+  line-height: 1.5;
 }
 
-/* Logout Button */
-#logoutBtn {
-  float: right;
-  margin-top: -40px;
-  margin-right: 10px;
-  background-color: #dc3545;
-}
-#logoutBtn:hover {
-  background-color: #c82333;
+
+/* ================= EMPTY STATE ================= */
+.empty-state {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
 }
 
-/* Footer */
+
+/* ================= FOOTER ================= */
 footer {
-  background: #333;
+  background: #222;
   color: white;
   text-align: center;
-  padding: 10px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+  padding: 10px;
 }

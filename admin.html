@@ -1,41 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Title -->
   <title>Admin Panel - IGNOU</title>
+
+  <!-- Redirect if not logged in -->
   <script>
     if (localStorage.getItem("isLoggedIn") !== "true") {
       window.location.href = "login.html";
     }
   </script>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/admin.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.png">
+
 </head>
+
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
+
   <img src="images/logo.png" alt="IGNOU Logo" class="logo" />
-  <h1>Admin Panel</h1>
+  <h1>IGNOU Admin Dashboard</h1>
+
+  <!-- Menu -->
   <div class="menu">&#8942;
     <div class="menu-links">
-      <a href="index.html">Home</a><br>
+      <a href="index.html">Home</a>
       <a href="admin.html">Admin</a>
     </div>
   </div>
+
 </header>
 
-<main class="admin-panel">
-  <h2>Submitted Feedbacks</h2>
-  <button id="logoutBtn" class="button-link">Logout</button>
 
-  <div id="feedbackContainer" class="feedback-list"></div>
+<!-- ================= MAIN ================= -->
+<main class="admin-container">
+
+  <!-- Top bar -->
+  <div class="admin-top">
+
+    <h2>Student Feedbacks</h2>
+
+    <!-- Logout button -->
+    <button id="logoutBtn" class="logout-btn">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- Feedback section -->
+  <div id="feedbackContainer" class="feedback-grid">
+
+    <!-- JS will insert feedback cards here -->
+
+  </div>
+
+  <!-- Empty state (NEW 🔥) -->
+  <p id="emptyState" class="empty-state" style="display: none;">
+    No feedback submitted yet.
+  </p>
+
 </main>
 
+
+<!-- ================= FOOTER ================= -->
 <footer>
   <p>&copy; 2025 IGNOU University. All rights reserved.</p>
 </footer>
 
+
+<!-- ================= JS ================= -->
 <script src="js/admin.js"></script>
-<script src = "js/threedotmenu.js"></script>
+<script src="js/threedotmenu.js"></script>
+
 </body>
 </html>

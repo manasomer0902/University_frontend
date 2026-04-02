@@ -1,74 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
     <title>Student Registration</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/student_registration.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png">
 </head>
+
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
     <img src="images/logo.png" alt="University Logo" class="logo">
-    <h1>Student Registration</h1>
-  <div class="menu">&#x22EE;
-    <div class="menu-links">
-      <a href="index.html">Home</a><br>
-      <a href="admin.html">Admin</a>
+    <h1>IGNOU University</h1>
+
+    <!-- 3-dot menu -->
+    <div class="menu">&#x22EE;
+        <div class="menu-links">
+            <a href="index.html">Home</a>
+            <a href="admin.html">Admin</a>
+        </div>
     </div>
-  </div>
 </header>
 
+
+<!-- ================= NAV ================= -->
 <nav>
     <a href="index.html">Home</a>
-    <a href="programmedetails.html">Programme Details</a>
+    <a href="programmedetails.html">Programme</a>
     <a href="student_registration.html">Registration</a>
     <a href="feedback.html">Feedback</a>
 </nav>
 
+
+<!-- ================= MAIN ================= -->
 <main>
-    <h2>Registration for a Programme</h2>
-    <form id="regForm" onsubmit="return validateForm()">
-        <label for="name">Student Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name">
 
-        <label for="username">Username<span class="required">*</span>:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username">
+    <div class="form-container">
+       
 
-        <label for="password">Password<span class="required">*</span>:</label>
-        <input type="password" id="password" name="password" placeholder="Create a password">
+        <h2>Student Registration</h2>
+        <p class="subtitle">Fill the details to enroll in your desired programme</p>
+        <p id="formMessage"></p>
+        <!-- Form -->
+        <form id="regForm">
 
-        <label for="phone">Phone Number<span class="required">*</span>:</label>
-        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Student Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+            </div>
 
-        <label for="email">Email ID<span class="required">*</span>:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email">
+            <!-- Username -->
+            <div class="form-group">
+                <label for="username">Username <span class="required">*</span></label>
+                <input type="text" id="username" name="username" placeholder="Enter username" required>
+            </div>
 
-        <label for="gender">Gender<span class="required">*</span>:</label>
-        <select id="gender" name="gender">
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-        </select>
-        
-        <label for="course">Select Course<span class="required">*</span>:</label>
-        <select id="course" required>
-            <option value="" disabled selected hidden>Choose a Course</option>
-        </select>
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password <span class="required">*</span></label>
+                <input type="password" id="password" name="password" placeholder="Create password" required>
+            </div>
 
-        
-        <button type="submit">Submit</button>
-    </form>
+            <!-- Phone -->
+            <div class="form-group">
+                <label for="phone">Phone Number <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email ID <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="Enter email" required>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+                <label for="gender">Gender <span class="required">*</span></label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <!-- Course -->
+            <div class="form-group">
+                <label for="course">Select Course <span class="required">*</span></label>
+                <select id="course" name="course" required>
+                    <option value="" disabled selected hidden>Choose a Course</option>
+                </select>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="submit-btn">Register</button>
+
+        </form>
+
+    </div>
+
 </main>
 
-<script src = "js/threedotmenu.js"></script>
 
-
+<!-- ================= FOOTER ================= -->
 <footer>
     <p>&copy; 2025 IGNOU University. All rights reserved.</p>
 </footer>
 
+
+<!-- ================= JS ================= -->
+<script src="js/config.js"></script>
+<script src="js/threedotmenu.js"></script>
 <script src="js/registrationform.js"></script>
+
 </body>
 </html>

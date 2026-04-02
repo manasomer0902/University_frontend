@@ -1,75 +1,130 @@
-// ✅ Validate the student registration form
+// ================= MESSAGE HANDLER =================
+function showMessage(text, type) {
+    let msg = document.getElementById("formMessage");
+
+    if (!msg) {
+        msg = document.createElement("p");
+        msg.id = "formMessage";
+        document.querySelector(".form-container").prepend(msg);
+    }
+
+    msg.textContent = text;
+    msg.style.color = type === "error" ? "red" : "green";
+
+    // 🔥 Auto hide after 3 seconds
+    setTimeout(() => {
+        msg.textContent = "";
+    }, 3000);
+}
+
+
+// ================= VALIDATION =================
 function validateForm() {
+
     const fields = {
-        username: document.getElementById('username').value.trim(),
-        password: document.getElementById('password').value.trim(),
-        name: document.getElementById('name').value.trim(),
-        phone: document.getElementById('phone').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        gender: document.getElementById('gender').value,
-        course: document.getElementById('course').value
+        username: document.getElementById('username')?.value.trim(),
+        password: document.getElementById('password')?.value.trim(),
+        name: document.getElementById('name')?.value.trim(),
+        phone: document.getElementById('phone')?.value.trim(),
+        email: document.getElementById('email')?.value.trim(),
+        gender: document.getElementById('gender')?.value,
+        course: document.getElementById('course')?.value
     };
 
-    // Check for empty fields
+    // ================= EMPTY CHECK =================
     for (let field in fields) {
         if (!fields[field]) {
-            alert("Please fill in all required fields.");
+            showMessage("Please fill in all required fields.", "error");
             return false;
         }
     }
 
-    // Validate 10-digit phone number
+    // ================= PHONE =================
     if (!/^\d{10}$/.test(fields.phone)) {
-        alert("Please enter a valid 10-digit phone number.");
+        showMessage("Enter a valid 10-digit phone number.", "error");
         return false;
     }
 
-    // Validate email format
+    // ================= EMAIL =================
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
-        alert("Please enter a valid email address.");
+        showMessage("Enter a valid email address.", "error");
         return false;
     }
 
-    // Password validation (optional): minimum 6 characters
+    // ================= PASSWORD =================
     if (fields.password.length < 6) {
-        alert("Password must be at least 6 characters long.");
+        showMessage("Password must be at least 6 characters.", "error");
         return false;
     }
 
-    alert("Registration successful!");
     return true;
 }
 
-// ✅ Load course options dynamically from programmedetails.html
+
+// ================= FORM SUBMIT (MAIN FIX 🔥) =================
+document.addEventListener("DOMContentLoaded", () => {
+
+    const form = document.getElementById("regForm");
+
+    if (form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault(); // 🚫 stop page reload
+
+            const isValid = validateForm();
+
+            if (isValid) {
+                showMessage("Registration successful!", "success");
+
+                // 🔥 Reset form after success
+                form.reset();
+            }
+        });
+    }
+
+    // Load courses on page load
+    loadCourses();
+});
+
+
+// ================= LOAD COURSES =================
 async function loadCourses() {
     try {
         const response = await fetch('programmedetails.html');
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch course page");
+        }
+
         const html = await response.text();
+
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
 
         const courseElements = doc.querySelectorAll('.course h3');
         const courseSelect = document.getElementById('course');
 
-        // Clear old options (except default first)
-        while (courseSelect.options.length > 1) {
-            courseSelect.remove(1);
-        }
+        if (!courseSelect) return;
 
-        // Append course titles as <option>
+        // Clear old options except first
+        courseSelect.length = 1;
+
+        const added = new Set();
+
         courseElements.forEach(h3 => {
             const title = h3.textContent.trim();
-            if (title) {
+
+            if (title && !added.has(title)) {
                 const option = document.createElement('option');
-                option.value = title; // Keep original title as value
+                option.value = title;
                 option.textContent = title;
+
                 courseSelect.appendChild(option);
+                added.add(title);
             }
         });
+
     } catch (error) {
         console.error("Error loading courses:", error);
+        showMessage("Unable to load courses. Try refreshing.", "error");
     }
 }
-
-// ✅ Trigger course loading on page load
-window.addEventListener('DOMContentLoaded', loadCourses);

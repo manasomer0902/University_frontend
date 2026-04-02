@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const res = await fetch("https://uni-backend-lojc.onrender.com/reset-password", {
+      const res = await fetch(`${BASE_URL}/reset-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

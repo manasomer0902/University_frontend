@@ -1,4 +1,4 @@
-/* Reset and Fonts */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -6,94 +6,204 @@
   font-family: Arial, sans-serif;
 }
 
-/* Header */
+/* ================= HEADER ================= */
 header {
-  background: #4c98af;
-  color: black;
+  background: linear-gradient(135deg, #4c98af, #6fb1c7);
   text-align: center;
   padding: 20px;
-}
-.logo {
-  max-width: 100px;
-  display: block;
-  margin: 0 auto 10px;
+  position: relative;
+  color: white;
 }
 
-/* Menu */
+.logo {
+  max-width: 80px;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+
+/* ================= MENU ================= */
 .menu {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 24px;
+  font-size: 22px;
   cursor: pointer;
-  z-index: 1000;
-  color: black;
-}
-.menu-links {
-  opacity: 0;
-  visibility: hidden;
-  display: none;
-  position: absolute;
-  top: 25px;
-  right: 10px;
-  background-color: transparent;
-  transition: opacity 0.3s ease;
-}
-.menu-links.show {
-  opacity: 1;
-  visibility: visible;
-  display: block;
-}
-.menu-links a {
-  display: block;
-  padding: 4px 10px;
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-}
-.menu-links a:hover {
-  background-color: transparent;
+  color: white;
 }
 
-/* Navigation Menu */
-nav {
-  background: #333;
-  overflow: hidden;
+/* Dropdown container */
+.menu-links {
+  position: absolute;
+  top: 35px;
+  right: 0;
+
+  background: white;
+  border-radius: 10px;
+
+  /* 🔥 Premium shadow */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+  /* spacing inside */
+  padding: 8px 0;
+
+  /* animation */
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+
+  transition: all 0.25s ease;
 }
-nav a {
-  float: left;
+
+/* When active */
+.menu-links.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Links */
+.menu-links a {
   display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 10px;
+  padding: 10px 20px;
   text-decoration: none;
+  color: #333;
+  font-size: 15px;
+
+  transition: 0.2s;
 }
+
+/* Hover effect */
+.menu:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+.menu-links a:hover {
+  background: #f0f0f0;
+}
+
+
+
+
+/* ================= NAVBAR ================= */
+nav {
+  background: #222;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+/* FIX: remove ugly blue click */
+nav a:visited {
+  color: white;
+}
+
 nav a:hover {
   background: #4c98af;
 }
 
-/* Main */
-main {
-  padding: 20px;
-  background: #f4f4f4;
-  min-height: 70vh;
+
+/* ================= HERO ================= */
+.hero {
+  background: linear-gradient(135deg, #4c98af, #6fb1c7);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
 }
-main h2 {
-  color: #333;
+
+.hero h2 {
+  font-size: 34px;
   margin-bottom: 15px;
 }
-main p {
+
+.hero p {
+  max-width: 600px;
+  margin: auto;
   font-size: 18px;
   line-height: 1.6;
 }
 
-/* Footer */
+
+/* ================= BUTTONS ================= */
+.hero-buttons {
+  margin-top: 25px;
+}
+
+.btn {
+  text-decoration: none;   /* 🔥 FIX blue underline */
+  padding: 12px 22px;
+  margin: 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+/* prevent blue color */
+.btn:visited {
+  color: inherit;
+}
+
+/* Primary */
+.primary {
+  background: #007BFF;
+  color: white;
+}
+
+.primary:hover {
+  background: #0056b3;
+}
+
+/* Secondary */
+.secondary {
+  background: rgb(33, 32, 32);
+  color: #333;
+}
+
+.secondary:hover {
+  background: #545454;
+}
+
+
+/* ================= MAIN ================= */
+main {
+  padding: 40px 20px;
+  background: #f4f4f4;
+}
+
+.message {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.message h2 {
+  margin-bottom: 15px;
+}
+
+.message p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
+/* ================= FOOTER ================= */
 footer {
-  background: #333;
+  background: #222;
   color: white;
   text-align: center;
-  padding: 10px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+  padding: 12px;
 }

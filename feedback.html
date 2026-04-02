@@ -1,51 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
     <title>Feedback</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/feedback.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png">
 </head>
+
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
     <img src="images/logo.png" alt="University Logo" class="logo">
-    <h1>Feedback Form</h1>
+    <h1>IGNOU University</h1>
+
+    <!-- 3-dot menu -->
     <div class="menu">&#x22EE;
         <div class="menu-links">
-          <a href="index.html">Home</a><br>
-          <a href="admin.html">Admin</a>
+            <a href="index.html">Home</a>
+            <a href="admin.html">Admin</a>
         </div>
-      </div>
+    </div>
 </header>
 
+
+<!-- ================= NAV ================= -->
 <nav>
     <a href="index.html">Home</a>
-    <a href="programmedetails.html">Programme Details</a>
+    <a href="programmedetails.html">Programme</a>
     <a href="student_registration.html">Registration</a>
     <a href="feedback.html">Feedback</a>
 </nav>
 
+
+<!-- ================= MAIN ================= -->
 <main>
-    <h2>Feedback Form</h2>
-    <form id="feedbackForm" onsubmit="return validateFeedback()" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+    <div class="feedback-container">
+
+        <h2>Feedback Form</h2>
+        <p class="subtitle">We value your feedback. Help us improve!</p>
+
+        <!-- Success message -->
+        <p id="successMsg" class="success-text"></p>
         
-        <label for="feedback">Feedback:</label>
-        <textarea id="feedback" name="feedback" rows="4" placeholder="Enter your feedback" required></textarea>
-        
-        <button type="submit">Submit</button>
-    </form>
+        <!-- Form -->
+        <form id="feedbackForm" method="POST">
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder="Enter your name" 
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="feedback">Your Feedback</label>
+                <textarea 
+                    id="feedback" 
+                    name="feedback" 
+                    rows="4" 
+                    placeholder="Write your feedback here..." 
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+
+        </form>
+
+    </div>
+
 </main>
 
-<script src="js/feedbackform.js"></script>
-<script src = "js/threedotmenu.js"></script>
 
-
+<!-- ================= FOOTER ================= -->
 <footer>
     <p>&copy; 2025 IGNOU University. All rights reserved.</p>
 </footer>
+
+
+<!-- ================= JS ================= -->
+<script src="js/config.js"></script>
+<script src="js/feedbackform.js"></script>
+<script src="js/threedotmenu.js"></script>
 
 </body>
 </html>

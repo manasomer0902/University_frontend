@@ -1,49 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IGNOU University Website</title>
-    <link rel="stylesheet" href="css/index.css">  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>IGNOU University</title>
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/index.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.png">
 </head>
+
 <body>
 
-<!-- Heading Division -->
+<!-- ================= HEADER ================= -->
 <header>
-    <img src="images/logo.png" alt="University Logo" class="logo">
-    <h1>Welcome to IGNOU University</h1>
-    <div class="menu">&#x22EE;
-      <div class="menu-links">
-        <a href="index.html">Home</a><br>
-        <a href="admin.html">Admin</a>
-      </div>
-    </div>
-  </header>
-  
 
-<!-- Navigation Menu -->
+  <img src="images/logo.png" alt="University Logo" class="logo">
+
+  <h1>IGNOU University</h1>
+
+  <!-- Three dot menu -->
+  <div class="menu">&#x22EE;
+    <div class="menu-links">
+      <a href="index.html">Home</a>
+      <a href="admin.html">Admin</a>
+    </div>
+  </div>
+
+</header>
+
+
+<!-- ================= NAVBAR ================= -->
 <nav>
-    <a href="index.html">Home</a>  <!-- ✅ Use index.html instead of home.html -->
-    <a href="programmedetails.html">Programme Details</a>
-    <a href="student_registration.html">Registration</a>
-    <a href="feedback.html">Feedback</a>
+  <a href="index.html">Home</a>
+  <a href="programmedetails.html">Programme</a>
+  <a href="student_registration.html">Registration</a>
+  <a href="feedback.html">Feedback</a>
 </nav>
 
 
+<!-- ================= HERO SECTION (NEW 🔥) ================= -->
+<section class="hero">
 
-<!-- Content Division -->
+  <div class="hero-content">
+    <h2>Shape Your Future with IGNOU</h2>
+
+    <p>
+      Join thousands of successful students and begin your journey
+      towards excellence with flexible and quality education.
+    </p>
+
+    <!-- Call to action buttons -->
+    <div class="hero-buttons">
+      <a href="student_registration.html" class="btn primary">Register Now</a>
+      <a href="programmedetails.html" class="btn secondary">Explore Courses</a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ================= MAIN CONTENT ================= -->
 <main>
+
+  <section class="message">
+
     <h2>Message from the Head of the University</h2>
-    <p style="margin-top: 15px;">Congratulations to all the successful students! We are delighted to welcome you to our university. 
-       Your hard work and dedication have paid off, and we look forward to supporting your academic journey.</p>
+
+    <p>
+      Congratulations to all the successful students! We are delighted to welcome you 
+      to our university. Your hard work and dedication have paid off, and we look 
+      forward to supporting your academic journey.
+    </p>
+
+  </section>
+
 </main>
-<script src = "js/threedotmenu.js"></script>
 
 
-<!-- Footer -->
+<!-- ================= FOOTER ================= -->
 <footer>
-    <p>&copy; 2025 IGNOU University. All rights reserved.</p>
+  <p>&copy; 2025 IGNOU University. All rights reserved.</p>
 </footer>
+
+
+<!-- ================= SCRIPTS ================= -->
+<script src="js/threedotmenu.js"></script>
 
 </body>
 </html>

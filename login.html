@@ -1,50 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title -->
   <title>Admin Login</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/login.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.png">
+
 </head>
 <body>
 
-  <header>
-    <img src="images/logo.png" alt="University Logo" class="logo">
-    <h1>Admin Login</h1>
-    <div class="menu">&#x22EE;
-        <div class="menu-links">
-          <a href="index.html">Home</a><br>
-          <a href="programmedetails.html">Programme</a><br>
-          <a href="student_registration.html">Registration</a><br>
-          <a href="feedback.html">Feedback</a><br> 
-        </div>
-      </div>
+<!-- ================= HEADER ================= -->
+<header>
+
+  <img src="images/logo.png" alt="University Logo" class="logo">
+  <h1>IGNOU University</h1>
+
+  <!-- 3-dot menu -->
+  <div class="menu">&#x22EE;
+    <div class="menu-links">
+      <a href="index.html">Home</a>
+      <a href="programmedetails.html">Programme</a>
+      <a href="student_registration.html">Registration</a>
+      <a href="feedback.html">Feedback</a>
+    </div>
+  </div>
+
 </header>
 
+
+<!-- ================= MAIN ================= -->
 <main>
-<h2>Admin Login</h2>
-<p id="error" style="color: red;"></p>
 
-<form id="loginForm">
-  <input type="text" id="username" placeholder="Username" required>
-  
-  <div class="password-wrapper">
-    <input type="password" id="password" placeholder="Password" required>
-    <span class="toggle-password" onclick="toggleVisibility('password', this)">👁️</span>
+  <!-- Login Card (NEW 🔥) -->
+  <div class="login-container">
+
+    <h2>Admin Login</h2>
+
+    <!-- Error message -->
+    <p id="error" class="error-text"></p>
+
+    <!-- Form -->
+    <form id="loginForm">
+
+      <input 
+        type="text" 
+        id="username" 
+        placeholder="Enter Username" 
+        required
+      >
+
+      <!-- Password -->
+      <div class="password-wrapper">
+        <input 
+          type="password" 
+          id="password" 
+          placeholder="Enter Password" 
+          required
+        >
+
+        <span 
+          class="toggle-password" 
+          onclick="toggleVisibility('password', this)"
+        >👁️</span>
+      </div>
+
+      <!-- Button -->
+      <button type="submit" class="login-btn">Login</button>
+
+    </form>
+
+    <!-- Loading -->
+    <p id="loading" class="loading-text">
+      Logging in, please wait...
+    </p>
+
+    <!-- Forgot -->
+    <p class="forgot-link">
+      <a href="forgot_password.html">Forgot Password?</a>
+    </p>
+
   </div>
-  
-  <button type="submit">Login</button>
-</form>
-
-<p id="loading" style="color: blue; display: none;">Logging in, please wait...</p>
-<p><a href="forgot_password.html" id="forgotPassword">Forgot Password?</a></p>
-
 
 </main>
 
+
+<!-- ================= FOOTER ================= -->
 <footer>
-    <p>&copy; 2025 IGNOU University. All rights reserved.</p>
+  <p>&copy; 2025 IGNOU University. All rights reserved.</p>
 </footer>
 
+
+<!-- ================= JS ================= -->
+<script src="js/config.js"></script>
 <script src="js/login.js" defer></script>
 <script src="js/threedotmenu.js"></script>
+
 </body>
 </html>

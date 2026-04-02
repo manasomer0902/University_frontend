@@ -1,0 +1,1 @@
+const BASE_URL = "https://uni-backend-lojc.onrender.com";

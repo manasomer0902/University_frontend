@@ -1,4 +1,4 @@
-/* General Reset */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -6,144 +6,169 @@
   font-family: Arial, sans-serif;
 }
 
-/* Header Styling */
+
+/* ================= HEADER ================= */
 header {
-  background: #4c98af;
-  color: rgb(3, 3, 3);
+  background: linear-gradient(135deg, #4c98af, #6fb1c7);
   text-align: center;
   padding: 20px;
-}
-.logo {
-  max-width: 100px;
-  display: block;
-  margin: 0 auto 10px;
+  position: relative;
+  color: white;
 }
 
-/* Admin Dropdown Menu (Three-dot menu) */
+.logo {
+  max-width: 80px;
+  margin-bottom: 10px;
+}
+
+
+/* ================= MENU ================= */
 .menu {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 24px;
   cursor: pointer;
-  z-index: 1000;
-  color: black;
 }
 
 .menu-links {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  display: none;
   position: absolute;
-  background-color: transparent;
-  padding: 5px 0;
-  right: 10px;
-  top: 25px;
-  z-index: 1000;
-  box-shadow: none;
+  top: 35px;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  padding: 8px 0;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: 0.25s;
 }
 
 .menu-links.show {
   opacity: 1;
-  visibility: visible;
-  display: block;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .menu-links a {
   display: block;
-  padding: 4px 10px;
-  margin-top: 0;
+  padding: 10px 20px;
   text-decoration: none;
-  color: black;
-  font-size: 16px;
-  line-height: 0.1;
-}
-.menu-links a:hover {
-  background-color: transparent;
-}
-
-/* Main Content */
-main {
-  padding: 20px;
-  background: #f4f4f4;
-  min-height: 70vh;
-}
-main h2 {
   color: #333;
-  margin-bottom: 25px;
-}
-main p {
-  font-size: 18px;
-  line-height: 1.6;
 }
 
-/* Form Elements */
-form {
+.menu-links a:hover {
+  background: #f0f0f0;
+}
+
+
+/* ================= MAIN ================= */
+main {
+  background: #f4f4f4;
+  min-height: 80vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ================= LOGIN CARD ================= */
+.login-container {
   background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  max-width: 400px;
-  margin: 40px 0 0 40px;
-}
-form input,
-form button {
-  display: block;
-  padding: 10px;
-  width: 100%;
-  margin: 10px 0;
+  padding: 40px;
+
   border-radius: 15px;
-  font-size: 16px;
+
+  width: 100%;
+  max-width: 400px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
-/* Password Field */
+.login-container h2 {
+  margin-bottom: 20px;
+}
+
+
+/* ================= INPUT ================= */
+form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+
+/* ================= PASSWORD ================= */
 .password-wrapper {
   position: relative;
-  max-width: 400px;
-}
-
-.password-wrapper input {
-  width: 100%;
-  padding: 10px;
-  padding-right: 40px;
-  box-sizing: border-box;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
 }
 
 .toggle-password {
   position: absolute;
   top: 50%;
-  right: 20px;
+  right: 15px;
   transform: translateY(-50%);
   cursor: pointer;
-  font-size: 18px;
-  user-select: none;
 }
 
-/* Button */
-button {
-  padding: 12px 20px;
+
+/* ================= BUTTON ================= */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+
   background: #007BFF;
   color: white;
+
   border: none;
+  border-radius: 10px;
+
   cursor: pointer;
-  border-radius: 15px;
+  transition: 0.3s;
 }
 
-button:hover {
+.login-btn:hover {
   background: #0056b3;
 }
 
-/* Footer */
+
+/* ================= TEXT ================= */
+.error-text {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.loading-text {
+  color: blue;
+  display: none;
+}
+
+.forgot-link {
+  margin-top: 10px;
+}
+
+.forgot-link a {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.forgot-link a:hover {
+  text-decoration: underline;
+}
+
+
+/* ================= FOOTER ================= */
 footer {
-  background: #333;
+  background: #222;
   color: white;
   text-align: center;
-  padding: 10px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+  padding: 10px;
 }

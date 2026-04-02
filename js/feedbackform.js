@@ -1,32 +1,88 @@
-// Feedback Form Validation and Submission
-function validateFeedback() {
-    const name = document.getElementById('name').value.trim();
-    const feedback = document.getElementById('feedback').value.trim();
+// ================= MESSAGE HANDLER =================
+function showMessage(text, type) {
+    let msg = document.getElementById("feedbackMessage");
 
-    if (!name || !feedback) {
-        alert("All fields must be filled out.");
-        if (!name) document.getElementById('name').focus();
-        else document.getElementById('feedback').focus();
-        return false;
+    if (!msg) {
+        msg = document.createElement("p");
+        msg.id = "feedbackMessage";
+        document.querySelector(".feedback-container").prepend(msg);
     }
 
-    // ✅ Send POST request to backend
-    fetch("https://uni-backend-lojc.onrender.com/submit", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name, feedback })
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-        window.location.href = "thankyou.html";
-    })
-    .catch(error => {
-        console.error("Error submitting feedback:", error);
-        alert("Something went wrong. Please try again later.");
+    msg.textContent = text;
+    msg.style.color = type === "error" ? "red" : "green";
+
+    // Auto hide after 3 sec
+    setTimeout(() => {
+        msg.textContent = "";
+    }, 3000);
+}
+
+
+// ================= MAIN =================
+document.addEventListener("DOMContentLoaded", () => {
+
+    const form = document.getElementById("feedbackForm");
+
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault(); // 🚫 stop reload
+
+        const nameInput = document.getElementById("name");
+        const feedbackInput = document.getElementById("feedback");
+
+        const name = nameInput.value.trim();
+        const feedback = feedbackInput.value.trim();
+
+        // ================= VALIDATION =================
+        if (!name || !feedback) {
+            showMessage("All fields must be filled.", "error");
+
+            if (!name) nameInput.focus();
+            else feedbackInput.focus();
+
+            return;
+        }
+
+        // ================= BUTTON LOADING =================
+        const button = form.querySelector("button");
+        button.disabled = true;
+        button.textContent = "Submitting...";
+
+        try {
+            const response = await fetch(`${BASE_URL}/submit`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ name, feedback })
+            });
+
+            if (!response.ok) {
+                throw new Error("Server error");
+            }
+
+            const data = await response.json();
+
+            // Success message
+            showMessage(data.message || "Feedback submitted!", "success");
+
+            // Reset form
+            form.reset();
+
+            // Redirect after delay 🔥
+            setTimeout(() => {
+                window.location.href = "thankyou.html";
+            }, 1500);
+
+        } catch (error) {
+            console.error("Error submitting feedback:", error);
+            showMessage("Something went wrong. Try again later.", "error");
+        } finally {
+            button.disabled = false;
+            button.textContent = "Submit Feedback";
+        }
+
     });
 
-    return false; // Stop default form submit
-}
+});
